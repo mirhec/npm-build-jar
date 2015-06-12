@@ -1,0 +1,28 @@
+{
+  "name": "build-jar",
+  "version": "1.0.0",
+  "description": "Creates a JAR file.",
+  "main": "lib/build-jar.js",
+  "bin": "./bin/build-jar",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
+    "build": "coffee --compile --output lib/ src/"
+  },
+  "keywords": [
+    "build",
+    "jar",
+    "java"
+  ],
+  "dependencies": {
+    "cp": "latest",
+    "colors": "latest"
+  },
+  "author": "Mirko Hecky",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirhec/npm-build-jar.git"
+  }
+}
