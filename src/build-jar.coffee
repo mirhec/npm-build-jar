@@ -2,7 +2,7 @@ fs = require 'fs'
 colors = require 'colors'
 path = require 'path'
 exec = require('child_process').spawnSync
-pjson = require './package.json'
+gittag = require('git-tag')(localOnly: true)
 env = process.env
 
 module.exports = buildJar = () ->
@@ -15,10 +15,10 @@ module.exports = buildJar = () ->
         return
 
     if not main_class?
-        ret = exec 'jar', ['cf', path.join(bin, name + '-' + pjson.version + '.jar'), '-C', path.join(bin, 'classes'), '.'],
+        ret = exec 'jar', ['cf', path.join(bin, name + '-' + gittag + '.jar'), '-C', path.join(bin, 'classes'), '.'],
             stdio: [0, 0, fs.openSync 'build-jar.log', 'w']
     else
-        ret = exec 'jar', ['cfe', path.join(bin, name + '-' + pjson.version + '.jar'), main_class, '-C', path.join(bin, 'classes'), '.'],
+        ret = exec 'jar', ['cfe', path.join(bin, name + '-' + gittag + '.jar'), main_class, '-C', path.join(bin, 'classes'), '.'],
             stdio: [0, 0, fs.openSync 'build-jar.log', 'w']
 
     if ret.status == 0

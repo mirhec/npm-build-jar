@@ -16,8 +16,8 @@
     "java"
   ],
   "dependencies": {
-    "cp": "latest",
-    "colors": "latest"
+    "colors": "latest",
+    "git-tag": "latest"
   },
   "author": "Mirko Hecky",
   "license": "ISC",
