@@ -1,6 +1,6 @@
 {
   "name": "build-jar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Creates a JAR file.",
   "main": "lib/build-jar.js",
   "bin": "./bin/build-jar",
